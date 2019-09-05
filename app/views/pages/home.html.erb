@@ -1,0 +1,116 @@
+
+
+<div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,100,170,0.6) 0%, rgba(0,35,60,0.6) 50%), url(<%= image_url('home.jpg') %>);">
+  <div class="banner-content">
+    <h1>Maati</h1>
+      <a class="navigation_link" href="/">
+        Home
+      </a>
+  </div>
+</div>
+<% if false %>
+<!-- Modal -->
+<div class="modal fade" id="Modalid" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <%= simple_form_for(@user, :url => session_path(:user)) do |f| %>
+          <div class="email-container">
+            <%= f.text_field :email, :class =>"form-control",placeholder: "Email", value:"", error: "Please Try again", validate: { presence: true, uniqueness: false }%>
+          </div>
+          <div class="password-container">
+            <%= f.password_field :password, :label =>"Password", :class =>"form-control", placeholder:"Password", value:"" %>
+          </div>
+          <%= f.submit 'Login', :class =>"form-control" %>
+          <%= f.check_box :remember_me, label: "Remember me", value: "true" %>
+          <%= f.label :remember_me %>
+        <% end %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+<%= content_for :after_js do %>
+  <script type="text/javascript">
+    $(document).on('shown.bs.modal', '.modal', function() {
+    $('form[data-client-side-validations]').enableClientSideValidations();
+  });
+  console.log("in afterjs")
+</script>
+
+
+<% end %>
+<!-- first lets get none modal validations working -->
+<%= simple_form_for(@user, :url => session_path(:user)) do |f| %>
+  <div class="email-container">
+    <%= f.text_field :email, :class =>"form-control",placeholder: "Email", value:"", error: "Please Try again", validate: { presence: true, uniqueness: false }%>
+  </div>
+  <div class="password-container">
+    <%= f.password_field :password, :label =>"Password", :class =>"form-control", placeholder:"Password", value:"" %>
+  </div>
+  <%= f.submit 'Login', :class =>"form-control" %>
+  <%= f.check_box :remember_me, label: "Remember me", value: "true" %>
+  <%= f.label :remember_me %>
+<% end %>
+
+
+
+<% end %>
+<div class="container">
+<div class="graphics">
+  <div class="card-graphics">
+    <%= image_tag "legal.png", size: "120x120"%>
+    <div class="how-it-works-text">
+      <h3>Find it</h3>
+      <p>CBD is legal and has been since 2016</p>
+    </div>
+  </div>
+  <div class="card-graphics">
+    <%= image_tag "plaster.png", size: "120x120" %>
+    <div class="how-it-works-text">
+      <h3>Find it</h3>
+      <p>Widespread beneficial medicinal effects</p>
+    </div>
+  </div>
+  <div class="card-graphics">
+    <%= image_tag "002-medical.svg", size: "120x120" %>
+    <div class="how-it-works-text">
+      <h3>Find it</h3>
+      <p>Quick and simple search</p>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- Products -->
+<h2 class="home-title">Our products</h2>
+<div class="container">
+  <%# @products.in_groups_of(3) do |product| %>
+  <div class="row">
+    <% @products.compact.each do |product| %>
+      <div class="col-md-4 col-sm-6 col-12">
+        <div class="product-card">
+          <%= link_to product_path(product) do %>
+            <%= cl_image_tag product.photo,crop: :fit, class: "image"%>
+            <div class="bar">
+              <div class="top-row">
+                <h4><%= product.name %></h4>
+                <h4>£<%= product.price %></h4>
+              </div>
+              <%= product.review_average || "Be the first to review this!" %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <%# end %>
+</div>

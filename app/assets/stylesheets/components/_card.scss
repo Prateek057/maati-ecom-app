@@ -1,0 +1,87 @@
+.product-card{
+  height: 100%;
+  position: relative;
+  background-color: white;
+  padding: 5px;
+  text-decoration: none;
+  margin-bottom: 40px;
+  
+  &h4{
+    position: absolute;
+  }
+  &:hover{
+    -webkit-box-shadow: 4px 3px 25px 2px rgba(0,0,0,0.6);
+    -moz-box-shadow: 4px 3px 25px 2px rgba(0,0,0,0.6);
+    box-shadow: 4px 3px 25px 2px rgba(0,0,0,0.6);
+  }
+  a{
+    text-decoration: none;
+    color:black;
+
+    &:hover{
+      text-decoration: none;
+      color:black;      
+    }    
+  }
+}
+
+.image{
+  width: 100%;
+}
+
+.bar{
+  margin-top: 10px;
+  border-top: 1px solid black;
+
+  .top-row{
+    display: flex;
+    justify-content: space-between;
+    h4:hover{
+      text-decoration: none;
+    }
+  }
+}
+
+
+h4:hover{
+  text-decoration: none;
+  text-decoration-color: black;
+}
+
+.card-accordion{
+  position: relative;
+display: flex;
+flex-direction: column;
+min-width: 0;
+word-wrap: break-word;
+background-color: #fff;
+background-clip: border-box;
+border: 1px solid rgba(0,0,0,.125);
+    border-bottom-color: rgba(0, 0, 0, 0.125);
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+border-radius: .25rem;
+    border-bottom-right-radius: 0.25rem;
+    border-bottom-left-radius: 0.25rem;
+}
+
+.card-header{
+  padding: .75rem 1.25rem;
+margin-bottom: 0;
+background-color: rgba(0,0,0,.03);
+border-bottom: 1px solid rgba(0,0,0,.125);
+}
+
+.card-body{
+  flex: 1 1 auto;
+padding: 1.25rem;
+}
+
+.no-transition {
+  // -webkit-transition: height 0.01s;
+  // -moz-transition: height 0.01s;
+  // -ms-transition: height 0.01s;
+  // -o-transition: height 0.01s;
+  // transition: height 0.01s;
+}
+
