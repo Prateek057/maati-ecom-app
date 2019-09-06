@@ -23,6 +23,8 @@ default: &default
 
 development:
   <<: *default
+  host: localhost
+  port: 32770
   database: maati
   username: admin
   password: maati
@@ -39,11 +41,8 @@ development:
   # Connect on a TCP socket. Omitted by default since the client uses a
   # domain socket that doesn't need configuration. Windows does not have
   # domain sockets, so uncomment these lines.
-  host: localhost
-
   # The TCP port the server listens on. Defaults to 5432.
   # If your server runs on a different port number, change accordingly.
-  port: 32770
 
   # Schema search path. The server defaults to $user,public
   #schema_search_path: myapp,sharedapp,public
@@ -82,6 +81,8 @@ test:
 #
 production:
   <<: *default
-  database: ecommerceTemplate_production
-  username: ecommerceTemplate
-  password: <%= ENV['ECOMMERCETEMPLATE_DATABASE_PASSWORD'] %>
+  host: ec2-54-247-85-251.eu-west-1.compute.amazonaws.com
+  port: 5432
+  database: ded1lo3cpb1jr0
+  username: wroqtlkfbundtg
+  password: 14aa64e54d37e158a074aa58c15a727a61a2a79c699c8180752f970653d70c07
